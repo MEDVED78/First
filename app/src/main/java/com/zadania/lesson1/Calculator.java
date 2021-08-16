@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class Calculator extends AppCompatActivity implements View.OnClickListener {
+    static String TAG = "text";
     TextView textView;
     Button button1;
     Button button2;
@@ -27,7 +27,8 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
     Button buttonDiv;
     Button buttonClear;
     Button buttonEqual;
-    String text = "";
+    Text text;
+    String vtext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         getSupportActionBar().setTitle("LessonThird");
         setContentView(R.layout.activity_calculator);
 
+        text = new Text();
         initView();
         iniListener();
     }
@@ -72,7 +74,6 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         button8.setOnClickListener(this);
         button9.setOnClickListener(this);
         button0.setOnClickListener(this);
-
         buttonPoint.setOnClickListener(this);
         buttonPlus.setOnClickListener(this);
         buttonMinus.setOnClickListener(this);
@@ -84,61 +85,100 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
+        vtext = text.getText();
         switch (v.getId()) {
             case R.id.button_1:
-                text = text + "1";
+                vtext = vtext + "1";
+                text.setText(vtext);
                 break;
             case R.id.button_2:
-                text = text + "2";
+                vtext = vtext + "2";
+                text.setText(vtext);
                 break;
             case R.id.button_3:
-                text = text + "3";
+                vtext = vtext + "3";
+                text.setText(vtext);
                 break;
             case R.id.button_4:
-                text = text + "4";
+                vtext = vtext + "4";
+                text.setText(vtext);
                 break;
             case R.id.button_5:
-                text = text + "5";
+                vtext = vtext + "5";
+                text.setText(vtext);
                 break;
             case R.id.button_6:
-                text = text + "6";
+                vtext = vtext + "6";
+                text.setText(vtext);
                 break;
             case R.id.button_7:
-                text = text + "7";
+                vtext = vtext + "7";
+                text.setText(vtext);
                 break;
             case R.id.button_8:
-                text = text + "8";
+                vtext = vtext + "8";
+                text.setText(vtext);
                 break;
             case R.id.button_9:
-                text = text + "9";
+                vtext = vtext + "9";
+                text.setText(vtext);
                 break;
             case R.id.button_0:
-                text = text + "0";
+                vtext = vtext + "0";
+                text.setText(vtext);
                 break;
             case R.id.button_point:
-                text = text + ".";
+                vtext = vtext + ".";
+                text.setText(vtext);
                 break;
             case R.id._plus:
-                text = text + "\u002B";
+                vtext = vtext + "+";
+                text.setText(vtext);
                 break;
             case R.id._minus:
-                text = text + "-";
+                vtext = vtext + "-";
+                text.setText(vtext);
                 break;
             case R.id._multiply:
-                text = text + "*";
+                vtext = vtext + "*";
+                text.setText(vtext);
                 break;
             case R.id._divide:
-                text = text + "\u00F7";
+                vtext = vtext + "\u00F7";
+                text.setText(vtext);
                 break;
             case R.id._clear:
-                text = "";
+                vtext = "";
+                text.setText(vtext);
                 break;
             case R.id._equal:
-                text = text + "=";
+                vtext = vtext + "=";
+                text.setText(vtext);
                 break;
             default:
                 break;
         }
-        textView.setText(text);
+        setContent();
     }
+
+    // Сохранение данных
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(TAG, text);
+    }
+
+    // Восстановление данных
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        text = savedInstanceState.getParcelable(TAG);
+        setContent();
+    }
+
+    private void setContent() {
+        textView.setText(text.getText());
+    }
+
+
 }
