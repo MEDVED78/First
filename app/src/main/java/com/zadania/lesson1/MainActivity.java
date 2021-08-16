@@ -11,9 +11,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(this, Calculator.class);
-        startActivity(intent);
-   //     setContentView(R.layout.activity_main);
+ //       Intent intent = new Intent(this, Calculator.class);
+  //      startActivity(intent);
+       setContentView(R.layout.activity_main);
    //     setContentView(R.layout.activity_main_second);
     }
 }
