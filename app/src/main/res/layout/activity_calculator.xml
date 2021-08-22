@@ -11,40 +11,45 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView_1"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/textViewWidth"
+        android:layout_height="@dimen/textViewHeight"
         android:layout_gravity="top"
         android:background="@color/white"
         android:gravity="center|right"
         android:inputType="number"
         android:textColor="@color/black"
-        android:textSize="30dp" />
+        android:textSize="@dimen/textButtonSize" />
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:paddingLeft="50sp"
-        android:paddingTop="50dp">
+        android:paddingLeft="@dimen/paddingTable_50"
+        android:paddingTop="@dimen/paddingTable_50">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_1"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
+            android:background="#77110A"
+            android:backgroundTint="#8A5050"
             android:text="@string/_1"
             android:textSize="@dimen/textButtonSize" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_2"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
             android:text="@string/_2"
             android:textSize="@dimen/textButtonSize" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_3"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
@@ -56,26 +61,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:paddingRight="50sp">
+        android:paddingRight="@dimen/paddingTable_50">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_4"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
             android:text="@string/_4"
             android:textSize="@dimen/textButtonSize" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_5"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
             android:text="@string/_5"
             android:textSize="@dimen/textButtonSize" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_6"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
@@ -88,27 +96,29 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="horizontal"
+        android:paddingLeft="@dimen/paddingTable_50">
 
-        android:paddingLeft="50sp">
-
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_7"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
             android:text="@string/_7"
             android:textSize="@dimen/textButtonSize" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_8"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
             android:text="@string/_8"
             android:textSize="@dimen/textButtonSize" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_9"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
@@ -120,10 +130,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:paddingRight="50sp">
+        android:paddingRight="@dimen/paddingTable_50">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_0"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
@@ -131,8 +142,9 @@
             android:text="@string/_0"
             android:textSize="@dimen/textButtonSize" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_point"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
@@ -145,34 +157,38 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingTop="20dp">
+        android:paddingTop="@dimen/padding_20">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/_plus"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
             android:text="@string/_plus"
             android:textSize="@dimen/textButtonSize" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/_minus"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
             android:text="@string/_minus"
             android:textSize="@dimen/textButtonSize" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/_multiply"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
             android:text="@string/_multiply"
             android:textSize="@dimen/textButtonSize" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/_divide"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
@@ -185,26 +201,26 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingTop="20dp">
+        android:paddingTop="@dimen/padding_20">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/_clear"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
             android:text="@string/_clear"
-            android:textSize="@dimen/textButtonSize" />
+            android:textSize="@dimen/textButtonSize"
+            app:backgroundTint="#C16969" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/_equal"
+            style="@style/MyCoolStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginButton"
             android:layout_span="2"
             android:text="@string/_equal"
             android:textSize="@dimen/textButtonSize" />
-
     </TableRow>
-
-
 </TableLayout>

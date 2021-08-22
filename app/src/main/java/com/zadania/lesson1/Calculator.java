@@ -4,41 +4,47 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 public class Calculator extends AppCompatActivity implements View.OnClickListener {
     static String TAG = "text";
-    TextView textView;
-    Button button1;
-    Button button2;
-    Button button3;
-    Button button4;
-    Button button5;
-    Button button6;
-    Button button7;
-    Button button8;
-    Button button9;
-    Button button0;
-    Button buttonPoint;
-    Button buttonPlus;
-    Button buttonMinus;
-    Button buttonMult;
-    Button buttonDiv;
-    Button buttonClear;
-    Button buttonEqual;
-    Text text;
-    String vtext;
+    static String TAG1 = "numb1";
+    static String TAG2 = "numb2";
+    Text text, numb1, numb2;
+    String vtext = "";
+    float number1, number2, sum, min, divis, multip;
+    int otv = 0;
+    androidx.appcompat.widget.AppCompatTextView textView;
+    androidx.appcompat.widget.AppCompatButton button1;
+    androidx.appcompat.widget.AppCompatButton button2;
+    androidx.appcompat.widget.AppCompatButton button3;
+    androidx.appcompat.widget.AppCompatButton button4;
+    androidx.appcompat.widget.AppCompatButton button5;
+    androidx.appcompat.widget.AppCompatButton button6;
+    androidx.appcompat.widget.AppCompatButton button7;
+    androidx.appcompat.widget.AppCompatButton button8;
+    androidx.appcompat.widget.AppCompatButton button9;
+    androidx.appcompat.widget.AppCompatButton button0;
+    androidx.appcompat.widget.AppCompatButton buttonPoint;
+    androidx.appcompat.widget.AppCompatButton buttonPlus;
+    androidx.appcompat.widget.AppCompatButton buttonMinus;
+    androidx.appcompat.widget.AppCompatButton buttonMult;
+    androidx.appcompat.widget.AppCompatButton buttonDiv;
+    androidx.appcompat.widget.AppCompatButton buttonClear;
+    androidx.appcompat.widget.AppCompatButton buttonEqual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("LessonThird");
+        getSupportActionBar().setTitle("LessonFourth");
         setContentView(R.layout.activity_calculator);
-
         text = new Text();
+        numb1 = new Text();
+        numb2 = new Text();
         initView();
         iniListener();
+        vtext = text.getText();
+        number1 = numb1.getNumb1();
+        number2 = numb2.getNumb2();
     }
 
     private void initView() {
@@ -52,7 +58,6 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         button7 = findViewById(R.id.button_7);
         button8 = findViewById(R.id.button_8);
         button9 = findViewById(R.id.button_9);
-        button0 = findViewById(R.id.button_0);
         button0 = findViewById(R.id.button_0);
         buttonPoint = findViewById(R.id.button_point);
         buttonPlus = findViewById(R.id._plus);
@@ -85,7 +90,6 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        vtext = text.getText();
         switch (v.getId()) {
             case R.id.button_1:
                 vtext = vtext + "1";
@@ -132,28 +136,67 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                 text.setText(vtext);
                 break;
             case R.id._plus:
+                otv = 1;
+                number1 = Float.valueOf(vtext);
+                numb1.setNumb1(number1);
                 vtext = vtext + "+";
                 text.setText(vtext);
+                vtext = "";
                 break;
             case R.id._minus:
+                otv = 2;
+                number1 = Float.valueOf(vtext);
+                numb1.setNumb1(number1);
                 vtext = vtext + "-";
                 text.setText(vtext);
+                vtext = "";
                 break;
             case R.id._multiply:
+                otv = 3;
+                number1 = Float.valueOf(vtext);
                 vtext = vtext + "*";
                 text.setText(vtext);
+                vtext = "";
                 break;
             case R.id._divide:
+                otv = 4;
+                number1 = Float.valueOf(vtext);
+                numb1.setNumb1(number1);
                 vtext = vtext + "\u00F7";
                 text.setText(vtext);
+                vtext = "";
                 break;
             case R.id._clear:
                 vtext = "";
                 text.setText(vtext);
+                otv = 0;
+                vtext = "";
                 break;
             case R.id._equal:
-                vtext = vtext + "=";
+                number2 = Integer.valueOf(vtext);
+                numb2.setNumb2(number2);
+                switch (otv) {
+                    case 1:
+                        sum = number1 + number2;
+                        vtext = String.valueOf(sum);
+                        break;
+                    case 2:
+                        min = number1 - number2;
+                        vtext = String.valueOf(min);
+                        break;
+                    case 3:
+                        multip = number1 * number2;
+                        vtext = String.valueOf(multip);
+                        break;
+                    case 4:
+                        divis = number1 / number2;
+                        vtext = String.valueOf(divis);
+                        break;
+                    default:
+                        break;
+                }
                 text.setText(vtext);
+                vtext = "";
                 break;
             default:
                 break;
@@ -166,6 +209,8 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable(TAG, text);
+        outState.putParcelable(TAG1, numb1);
+        outState.putParcelable(TAG2, numb2);
     }
 
     // Восстановление данных
@@ -173,6 +218,8 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         text = savedInstanceState.getParcelable(TAG);
+        numb1 = savedInstanceState.getParcelable(TAG1);
+        numb2 = savedInstanceState.getParcelable(TAG2);
         setContent();
     }
 
