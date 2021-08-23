@@ -1,11 +1,11 @@
 package com.zadania.lesson1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioGroup;
+import com.google.android.material.radiobutton.MaterialRadioButton;
 
-public class Calculator extends AppCompatActivity implements View.OnClickListener {
+public class Calculator extends BaseActivity implements View.OnClickListener {
     static String TAG = "text";
     static String TAG1 = "numb1";
     static String TAG2 = "numb2";
@@ -37,6 +37,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("LessonFourth");
         setContentView(R.layout.activity_calculator);
+        initThemeChooser();
         text = new Text();
         numb1 = new Text();
         numb2 = new Text();
@@ -45,6 +46,31 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         vtext = text.getText();
         number1 = numb1.getNumb1();
         number2 = numb2.getNumb2();
+    }
+
+    private void initThemeChooser() {
+        initRadioButton(findViewById(R.id.radioButtonMyCoolStyle),
+                MyCoolCodeStyle);
+        initRadioButton(findViewById(R.id.radioButtonMaterialDark),
+                AppThemeDarkCodeStyle);
+        initRadioButton(findViewById(R.id.radioButtonMaterialLight),
+                AppThemeLightCodeStyle);
+        initRadioButton(findViewById(R.id.radioButtonMaterialLightDarkAction),
+                AppThemeCodeStyle);
+        RadioGroup rg = findViewById(R.id.radioButtons);
+        ((MaterialRadioButton) rg.getChildAt(getCodeStyle(MyCoolCodeStyle))).setChecked(true);
+    }
+
+    private void initRadioButton(View button, final int codeStyle) {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // сохраним настройки
+                setAppTheme(codeStyle);
+                // пересоздадим активити, чтобы тема применилась
+                recreate();
+            }
+        });
     }
 
     private void initView() {
@@ -226,6 +252,5 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
     private void setContent() {
         textView.setText(text.getText());
     }
-
 
 }
