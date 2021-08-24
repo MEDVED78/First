@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="textButtonSize">30dp</dimen>
+    <dimen name="textButtonSize">30sp</dimen>
     <dimen name="marginButton">2dp</dimen>
     <dimen name="textViewWidth">100dp</dimen>
     <dimen name="textViewHeight">60dp</dimen>
     <dimen name="paddingTable_50">50dp</dimen>
     <dimen name="padding_20">20dp</dimen>
     <dimen name="padding_10">10dp</dimen>
+    <dimen name="sizeButtonSetup">25pt</dimen>
+    <dimen name="sizeButtonSetupLand">20pt</dimen>
+    <dimen name="padding_110dp">145dp</dimen>
+    <dimen name="_100dp">100dp</dimen>
 </resources>

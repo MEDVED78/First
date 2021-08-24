@@ -203,41 +203,25 @@
             android:textSize="@dimen/textButtonSize" />
     </TableRow>
 
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/padding_20">
 
-    <RadioGroup
-        android:id="@+id/radioButtons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCancel">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettings"
+            android:layout_width="@dimen/sizeButtonSetup"
+            android:layout_height="@dimen/sizeButtonSetup"
+            app:icon="@mipmap/setup"
+            app:iconSize="@dimen/sizeButtonSetup" />
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonMyCoolStyle"
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApply"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/my_cool_style"
-            android:textColor="@color/teal_200" />
+            android:text="@string/Apply" />
+    </TableRow>
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonMaterialLight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/material_light"
-            android:textColor="@color/purple_200" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonMaterialLightDarkAction"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/material_light_action_bar_dark"
-            android:textColor="@color/white" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonMaterialDark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/material_dark"
-            android:textColor="@color/purple_500" />
-    </RadioGroup>
 </TableLayout>

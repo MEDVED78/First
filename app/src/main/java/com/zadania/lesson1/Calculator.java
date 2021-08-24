@@ -1,18 +1,20 @@
 package com.zadania.lesson1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RadioGroup;
-import com.google.android.material.radiobutton.MaterialRadioButton;
 
-public class Calculator extends BaseActivity implements View.OnClickListener {
+public class Calculator extends SettingsCalculator implements View.OnClickListener {
     static String TAG = "text";
     static String TAG1 = "numb1";
     static String TAG2 = "numb2";
+
     Text text, numb1, numb2;
     String vtext = "";
     float number1, number2, sum, min, divis, multip;
     int otv = 0;
+    static int k = 1;
+    private static String TAG5 = "myLogs";
     androidx.appcompat.widget.AppCompatTextView textView;
     androidx.appcompat.widget.AppCompatButton button1;
     androidx.appcompat.widget.AppCompatButton button2;
@@ -31,13 +33,15 @@ public class Calculator extends BaseActivity implements View.OnClickListener {
     androidx.appcompat.widget.AppCompatButton buttonDiv;
     androidx.appcompat.widget.AppCompatButton buttonClear;
     androidx.appcompat.widget.AppCompatButton buttonEqual;
+    androidx.appcompat.widget.AppCompatButton buttonSettings;
+    androidx.appcompat.widget.AppCompatButton buttonApply;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("LessonFourth");
+        // setTheme(getAppTheme(R.style.MyCoolStyle));
         setContentView(R.layout.activity_calculator);
-        initThemeChooser();
         text = new Text();
         numb1 = new Text();
         numb2 = new Text();
@@ -48,30 +52,6 @@ public class Calculator extends BaseActivity implements View.OnClickListener {
         number2 = numb2.getNumb2();
     }
 
-    private void initThemeChooser() {
-        initRadioButton(findViewById(R.id.radioButtonMyCoolStyle),
-                MyCoolCodeStyle);
-        initRadioButton(findViewById(R.id.radioButtonMaterialDark),
-                AppThemeDarkCodeStyle);
-        initRadioButton(findViewById(R.id.radioButtonMaterialLight),
-                AppThemeLightCodeStyle);
-        initRadioButton(findViewById(R.id.radioButtonMaterialLightDarkAction),
-                AppThemeCodeStyle);
-        RadioGroup rg = findViewById(R.id.radioButtons);
-        ((MaterialRadioButton) rg.getChildAt(getCodeStyle(MyCoolCodeStyle))).setChecked(true);
-    }
-
-    private void initRadioButton(View button, final int codeStyle) {
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // сохраним настройки
-                setAppTheme(codeStyle);
-                // пересоздадим активити, чтобы тема применилась
-                recreate();
-            }
-        });
-    }
 
     private void initView() {
         textView = findViewById(R.id.textView_1);
@@ -92,6 +72,8 @@ public class Calculator extends BaseActivity implements View.OnClickListener {
         buttonDiv = findViewById(R.id._divide);
         buttonClear = findViewById(R.id._clear);
         buttonEqual = findViewById(R.id._equal);
+        buttonSettings = findViewById(R.id.btnSettings);
+        buttonApply = findViewById(R.id.btnApply);
     }
 
     private void iniListener() {
@@ -112,7 +94,10 @@ public class Calculator extends BaseActivity implements View.OnClickListener {
         buttonDiv.setOnClickListener(this);
         buttonClear.setOnClickListener(this);
         buttonEqual.setOnClickListener(this);
+        buttonSettings.setOnClickListener(this);
+        buttonApply.setOnClickListener(this);
     }
+
 
     @Override
     public void onClick(View v) {
@@ -224,6 +209,16 @@ public class Calculator extends BaseActivity implements View.OnClickListener {
                 text.setText(vtext);
                 vtext = "";
                 break;
+            case R.id.btnSettings:
+                // Чтобы стартовать активити, надо подготовить интент
+                // В данном случае это будет явный интент, поскольку здесь передаётся класс активити
+                Intent runSettings = new Intent(Calculator.this, SettingsCalculator.class);
+                // Метод стартует активити, указанную в интенте
+                startActivity(runSettings);
+                break;
+            case R.id.btnApply:
+                recreate();
+                break;
             default:
                 break;
         }
@@ -252,5 +247,4 @@ public class Calculator extends BaseActivity implements View.OnClickListener {
     private void setContent() {
         textView.setText(text.getText());
     }
-
 }

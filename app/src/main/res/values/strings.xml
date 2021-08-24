@@ -20,5 +20,8 @@
     <string name="my_cool_style">My cool style</string>
     <string name="material_light">Material light</string>
     <string name="material_light_action_bar_dark">Material bar dark</string>
-    <string name="material_dark">Material dark</string>t
+    <string name="material_dark">Material dark</string>
+    <string name="_return">return</string>
+    <string name="account">setting</string>
+    <string name="Apply">apply</string>t
 </resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SettingsCalculator">
+
+    <RadioGroup
+        android:id="@+id/radioButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioButtonMyCoolStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/my_cool_style"
+            android:textColor="@color/teal_200" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioButtonMaterialLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/material_light"
+            android:textColor="@color/purple_200" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioButtonMaterialLightDarkAction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/material_light_action_bar_dark"
+            android:textColor="@color/white" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioButtonMaterialDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/material_dark"
+            android:textColor="@color/purple_500" />
+    </RadioGroup>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnReturn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/_return" />
+</LinearLayout>

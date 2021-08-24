@@ -2,16 +2,12 @@ package com.zadania.lesson1;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class BaseActivity extends AppCompatActivity {
-
-    // Имя настроек
     private static final String NameSharedPreference = "LOGIN";
-
-    // Имя параметра в настройках
     private static final String AppTheme = "APP_THEME";
+
     protected static final int MyCoolCodeStyle = 0;
     protected static final int AppThemeLightCodeStyle = 1;
     protected static final int AppThemeCodeStyle = 2;
@@ -23,7 +19,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         setTheme(getAppTheme(R.style.MyCoolStyle));
     }
 
-    private int getAppTheme(int codeStyle) {
+    public int getAppTheme(int codeStyle) {
         return codeStyleToStyleId(getCodeStyle(codeStyle));
     }
 
@@ -48,6 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         return sharedPref.getInt(AppTheme, codeStyle);
     }
 
+
     // Сохранение настроек
     protected void setAppTheme(int codeStyle) {
         SharedPreferences sharedPref = getSharedPreferences(NameSharedPreference, MODE_PRIVATE);
@@ -56,6 +53,4 @@ public abstract class BaseActivity extends AppCompatActivity {
         editor.putInt(AppTheme, codeStyle);
         editor.apply();
     }
-
-
 }

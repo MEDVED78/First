@@ -8,6 +8,7 @@ public class Text implements Parcelable {
     private float numb1;
     private float numb2;
 
+
     Text() {
     }
 
@@ -53,6 +54,7 @@ public class Text implements Parcelable {
         return numb2;
     }
 
+
     public void setText(String text) {
         this.text = text;
     }
@@ -64,4 +66,6 @@ public class Text implements Parcelable {
     public void setNumb2(float numb2) {
         this.numb2 = numb2;
     }
+
+
 }
